@@ -257,9 +257,21 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               {footerConfig.bottomLinks.map((link) => (
-                <a key={link} href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
-                  {link}
-                </a>
+                link.href ? (
+                  <a 
+                    key={link.label} 
+                    href={link.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-white/30 hover:text-white/60 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <a key={link.label} href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+                    {link.label}
+                  </a>
+                )
               ))}
             </div>
           </div>

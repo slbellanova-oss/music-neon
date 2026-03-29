@@ -220,6 +220,11 @@ export interface SocialLink {
   href: string;
 }
 
+export interface BottomLink {
+  label: string;
+  href?: string;
+}
+
 export interface FooterConfig {
   portraitImage: string;
   portraitAlt: string;
@@ -244,7 +249,7 @@ export interface FooterConfig {
   newsletterButtonText: string;
   subscribeAlertMessage: string;
   copyrightText: string;
-  bottomLinks: string[];
+  bottomLinks: BottomLink[];
   socialLinks: SocialLink[];
   galleryImages: FooterImage[];
 }
@@ -273,7 +278,11 @@ export const footerConfig: FooterConfig = {
   newsletterButtonText: "Подписаться",
   subscribeAlertMessage: "Спасибо за подписку! Теперь ты будешь в курсе всех новостей NEON PULSE.",
   copyrightText: "© 2025 NEON PULSE. Все права защищены.",
-  bottomLinks: ["Политика конфиденциальности", "Условия использования"],
+  bottomLinks: [
+    { label: "Политика конфиденциальности" },
+    { label: "Условия использования" },
+    { label: "Создано с любовью к качеству SWD Craft", href: "https://swdcraft.ru" },
+  ],
   socialLinks: [
     { icon: "instagram", label: "Instagram", href: "https://instagram.com" },
     { icon: "twitter", label: "Twitter", href: "https://twitter.com" },
