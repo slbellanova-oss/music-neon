@@ -102,19 +102,19 @@ const Hero = () => {
       {/* Navigation pill */}
       <nav
         ref={navRef}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-2 py-2"
+        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-2 py-2 max-w-[95vw]"
       >
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide">
           {heroConfig.navItems.map((item) => {
             const IconComponent = ICON_MAP[item.icon];
             return (
               <button
                 key={item.sectionId}
                 onClick={() => scrollToSection(item.sectionId)}
-                className="flex items-center gap-2 px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/5"
+                className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/5 whitespace-nowrap"
               >
-                <IconComponent className="w-3.5 h-3.5" />
-                <span>{item.label}</span>
+                <IconComponent className="w-3.5 h-3.5 flex-shrink-0" />
+                <span className="hidden sm:inline">{item.label}</span>
               </button>
             );
           })}
@@ -122,21 +122,21 @@ const Hero = () => {
       </nav>
 
       {/* Hero content */}
-      <div className="relative z-10 flex flex-col items-center justify-end h-full pb-20 px-4">
+      <div className="relative z-10 flex flex-col items-center justify-end h-full pb-12 md:pb-20 px-4">
         {/* Logo / Brand */}
-        <div className="absolute top-8 left-8">
+        <div className="absolute top-6 md:top-8 left-4 md:left-8">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-neon-cyan/20 flex items-center justify-center">
-              <Disc className="w-4 h-4 text-neon-cyan" />
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-neon-cyan/20 flex items-center justify-center">
+              <Disc className="w-3 h-3 md:w-4 md:h-4 text-neon-cyan" />
             </div>
-            <span className="font-display text-lg text-white">{heroConfig.brandName}</span>
+            <span className="font-display text-base md:text-lg text-white">{heroConfig.brandName}</span>
           </div>
         </div>
 
         {/* Main title with decode effect */}
         <h1
           ref={titleRef}
-          className="decode-text text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold text-white leading-none tracking-tighter mb-4"
+          className="decode-text text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8vw] font-bold text-white leading-none tracking-tighter mb-4 text-center"
         >
           <span className={`${isDecoding ? 'text-glow-cyan' : ''} transition-all duration-300`}>
             {displayText}
@@ -146,22 +146,22 @@ const Hero = () => {
         {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className="font-mono-custom text-sm md:text-base text-neon-soft/70 uppercase tracking-[0.3em] mb-8"
+          className="font-mono-custom text-xs sm:text-sm md:text-base text-neon-soft/70 uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-8 text-center px-4"
         >
           {heroConfig.subtitle}
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4">
           <button
             onClick={() => scrollToSection(heroConfig.ctaPrimaryTarget)}
-            className="px-8 py-3 bg-white text-void-black font-display text-sm uppercase tracking-wider rounded-full hover:bg-neon-soft transition-colors duration-300"
+            className="px-6 sm:px-8 py-3 bg-white text-void-black font-display text-xs sm:text-sm uppercase tracking-wider rounded-full hover:bg-neon-soft transition-colors duration-300 w-full sm:w-auto"
           >
             {heroConfig.ctaPrimary}
           </button>
           <button
             onClick={() => scrollToSection(heroConfig.ctaSecondaryTarget)}
-            className="px-8 py-3 border border-white/30 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-neon-cyan hover:text-neon-cyan transition-colors duration-300"
+            className="px-6 sm:px-8 py-3 border border-white/30 text-white font-display text-xs sm:text-sm uppercase tracking-wider rounded-full hover:border-neon-cyan hover:text-neon-cyan transition-colors duration-300 w-full sm:w-auto"
           >
             {heroConfig.ctaSecondary}
           </button>
@@ -172,9 +172,9 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neon-cyan/30 to-transparent" />
 
       {/* Corner accents */}
-      <div className="absolute top-8 right-8 text-right">
-        <p className="font-mono-custom text-xs text-white/40 uppercase tracking-wider">{heroConfig.cornerLabel}</p>
-        <p className="font-mono-custom text-xs text-neon-soft/60">{heroConfig.cornerDetail}</p>
+      <div className="absolute top-6 md:top-8 right-4 md:right-8 text-right">
+        <p className="font-mono-custom text-[10px] md:text-xs text-white/40 uppercase tracking-wider">{heroConfig.cornerLabel}</p>
+        <p className="font-mono-custom text-[10px] md:text-xs text-neon-soft/60">{heroConfig.cornerDetail}</p>
       </div>
     </section>
   );

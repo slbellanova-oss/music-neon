@@ -242,6 +242,16 @@ canvas {
   background-color: #9DC4FF;
 }
 
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* List item hover state */
 .tour-item {
   transition: all 0.3s ease;

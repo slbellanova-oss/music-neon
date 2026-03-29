@@ -69,13 +69,13 @@ const Footer = () => {
       className="relative w-full bg-void-black overflow-hidden"
     >
       {/* Artist portrait section */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Background portrait */}
         <div
           ref={portraitRef}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="relative w-full max-w-2xl aspect-[2/3] mx-auto">
+          <div className="relative w-full max-w-xl md:max-w-2xl aspect-[2/3] mx-auto">
             <img
               src={footerConfig.portraitImage}
               alt={footerConfig.portraitAlt}
@@ -90,41 +90,41 @@ const Footer = () => {
         {/* Parallax title overlay */}
         <div
           ref={titleRef}
-          className="relative z-10 text-center will-change-transform"
+          className="relative z-10 text-center will-change-transform px-4"
         >
-          <h2 className="font-display text-[15vw] text-white leading-none tracking-tighter">
+          <h2 className="font-display text-[18vw] sm:text-[15vw] md:text-[12vw] lg:text-[10vw] text-white leading-none tracking-tighter">
             {footerConfig.heroTitle}
           </h2>
-          <p className="font-mono-custom text-lg text-neon-soft/60 uppercase tracking-[0.5em] mt-4">
+          <p className="font-mono-custom text-sm md:text-lg text-neon-soft/60 uppercase tracking-[0.3em] md:tracking-[0.5em] mt-4">
             {footerConfig.heroSubtitle}
           </p>
         </div>
 
         {/* Artist name */}
-        <div className="absolute bottom-20 left-12 z-20">
+        <div className="absolute bottom-12 md:bottom-20 left-6 md:left-12 z-20">
           <p className="font-mono-custom text-xs text-white/40 uppercase tracking-wider mb-2">
             {footerConfig.artistLabel}
           </p>
-          <h3 className="font-display text-4xl text-white">{footerConfig.artistName}</h3>
-          <p className="font-mono-custom text-sm text-neon-soft/60">{footerConfig.artistSubtitle}</p>
+          <h3 className="font-display text-2xl md:text-4xl text-white">{footerConfig.artistName}</h3>
+          <p className="font-mono-custom text-xs md:text-sm text-neon-soft/60">{footerConfig.artistSubtitle}</p>
         </div>
       </div>
 
       {/* Footer content */}
-      <div className="relative bg-void-black py-20 px-6 md:px-12">
+      <div className="relative bg-void-black py-12 md:py-20 px-4 md:px-6 lg:px-12">
         {/* Top divider */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="max-w-7xl mx-auto">
           {/* Footer grid - Main content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-20">
             {/* Brand */}
-            <div>
+            <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-neon-cyan/20 flex items-center justify-center">
                   <Music2 className="w-5 h-5 text-neon-cyan" />
                 </div>
-                <span className="font-display text-2xl text-white">{footerConfig.brandName}</span>
+                <span className="font-display text-xl md:text-2xl text-white">{footerConfig.brandName}</span>
               </div>
               <p className="text-sm text-white/50 leading-relaxed mb-6">
                 {footerConfig.brandDescription}
@@ -174,23 +174,23 @@ const Footer = () => {
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-neon-soft/60 mt-0.5" />
+                  <Mail className="w-4 h-4 text-neon-soft/60 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-white/50">{footerConfig.emailLabel}</p>
-                    <a href={`mailto:${footerConfig.email}`} className="text-sm text-white hover:text-neon-soft transition-colors">
+                    <a href={`mailto:${footerConfig.email}`} className="text-sm text-white hover:text-neon-soft transition-colors break-all">
                       {footerConfig.email}
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-neon-soft/60 mt-0.5" />
+                  <Phone className="w-4 h-4 text-neon-soft/60 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-white/50">{footerConfig.phoneLabel}</p>
                     <span className="text-sm text-white">{footerConfig.phone}</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-neon-soft/60 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-neon-soft/60 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-white/50">{footerConfig.addressLabel}</p>
                     <span className="text-sm text-white">{footerConfig.address}</span>
@@ -200,14 +200,14 @@ const Footer = () => {
             </div>
 
             {/* Newsletter */}
-            <div>
+            <div className="sm:col-span-2 lg:col-span-1">
               <h4 className="font-display text-sm uppercase tracking-wider text-white mb-6">
                 {footerConfig.newsletterTitle}
               </h4>
               <p className="text-sm text-white/50 mb-4">
                 {footerConfig.newsletterDescription}
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   placeholder="your@email.com"
@@ -215,7 +215,7 @@ const Footer = () => {
                 />
                 <button
                   onClick={handleContactClick}
-                  className="px-4 py-3 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-medium hover:bg-neon-cyan/30 transition-colors"
+                  className="px-4 py-3 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-medium hover:bg-neon-cyan/30 transition-colors whitespace-nowrap"
                 >
                   {footerConfig.newsletterButtonText}
                 </button>
@@ -225,7 +225,7 @@ const Footer = () => {
 
           {/* Footer image grid */}
           {footerConfig.galleryImages.length > 0 && (
-            <div className="mb-12">
+            <div className="mb-8 md:mb-12">
               <p className="font-mono-custom text-xs text-white/30 uppercase tracking-wider mb-4">
                 Gallery
               </p>
@@ -251,11 +251,11 @@ const Footer = () => {
           )}
 
           {/* Bottom bar */}
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30 font-mono-custom">
+          <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-white/30 font-mono-custom text-center md:text-left">
               {footerConfig.copyrightText}
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
               {footerConfig.bottomLinks.map((link) => (
                 link.href ? (
                   <a 
@@ -263,12 +263,12 @@ const Footer = () => {
                     href={link.href} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-white/30 hover:text-white/60 transition-colors"
+                    className="text-xs text-white/30 hover:text-white/60 transition-colors text-center"
                   >
                     {link.label}
                   </a>
                 ) : (
-                  <a key={link.label} href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+                  <a key={link.label} href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors text-center">
                     {link.label}
                   </a>
                 )

@@ -77,7 +77,7 @@ const TourSchedule = () => {
     >
       {/* Rotating vinyl disc */}
       {tourScheduleConfig.vinylImage && (
-        <div className="absolute top-20 right-20 w-64 h-64 md:w-80 md:h-80 z-10 opacity-80">
+        <div className="absolute top-10 right-4 md:top-20 md:right-20 w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 z-10 opacity-60 md:opacity-80">
           <img
             src={tourScheduleConfig.vinylImage}
             alt="Vinyl Disc"
@@ -87,13 +87,13 @@ const TourSchedule = () => {
       )}
 
       {/* Content container */}
-      <div ref={contentRef} className="relative z-20 max-w-7xl mx-auto px-6 md:px-12">
+      <div ref={contentRef} className="relative z-20 max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
         {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <p className="font-mono-custom text-xs text-[#1F1F1F]/60 uppercase tracking-wider mb-2">
             {tourScheduleConfig.sectionLabel}
           </p>
-          <h2 className="font-display text-5xl md:text-7xl text-[#1F1F1F]">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-[#1F1F1F]">
             {tourScheduleConfig.sectionTitle}
           </h2>
         </div>
@@ -131,26 +131,36 @@ const TourSchedule = () => {
               return (
                 <div
                   key={tour.id}
-                  className="tour-item group relative p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-[#1F1F1F]/10 hover:bg-white/80 transition-all duration-300 cursor-pointer"
+                  className="tour-item group relative p-4 md:p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-[#1F1F1F]/10 hover:bg-white/80 transition-all duration-300 cursor-pointer"
                   onMouseEnter={() => setActiveVenue(index)}
                   onMouseLeave={() => setActiveVenue(0)}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
-                    {/* Date */}
-                    <div className="flex-shrink-0 w-28">
-                      <p className="font-mono-custom text-2xl font-bold text-[#1F1F1F]">
-                        {tour.date.split('.').slice(1).join('.')}
-                      </p>
-                      <p className="font-mono-custom text-xs text-[#1F1F1F]/50">
-                        {tour.date.split('.')[0]}
-                      </p>
+                  <div className="flex flex-col gap-3 md:gap-4">
+                    {/* Date and Status row */}
+                    <div className="flex items-start justify-between gap-2">
+                      {/* Date */}
+                      <div className="flex-shrink-0">
+                        <p className="font-mono-custom text-xl md:text-2xl font-bold text-[#1F1F1F]">
+                          {tour.date.split('.').slice(1).join('.')}
+                        </p>
+                        <p className="font-mono-custom text-xs text-[#1F1F1F]/50">
+                          {tour.date.split('.')[0]}
+                        </p>
+                      </div>
+
+                      {/* Status badge */}
+                      <div className="flex-shrink-0">
+                        <span className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium ${status.color}`}>
+                          {status.text}
+                        </span>
+                      </div>
                     </div>
 
                     {/* Venue info */}
                     <div className="flex-grow">
                       <div className="flex items-center gap-2 mb-1">
-                        <MapPin className="w-4 h-4 text-[#1F1F1F]/50" />
-                        <span className="font-display text-lg text-[#1F1F1F]">
+                        <MapPin className="w-4 h-4 text-[#1F1F1F]/50 flex-shrink-0" />
+                        <span className="font-display text-base md:text-lg text-[#1F1F1F]">
                           {tour.city}
                         </span>
                       </div>
@@ -159,32 +169,28 @@ const TourSchedule = () => {
                       </p>
                     </div>
 
-                    {/* Time */}
-                    <div className="flex items-center gap-2 text-[#1F1F1F]/60">
-                      <Clock className="w-4 h-4" />
-                      <span className="font-mono-custom text-sm">{tour.time}</span>
-                    </div>
+                    {/* Time and Action row */}
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      {/* Time */}
+                      <div className="flex items-center gap-2 text-[#1F1F1F]/60">
+                        <Clock className="w-4 h-4" />
+                        <span className="font-mono-custom text-sm">{tour.time}</span>
+                      </div>
 
-                    {/* Status badge */}
-                    <div className="flex-shrink-0">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${status.color}`}>
-                        {status.text}
-                      </span>
-                    </div>
-
-                    {/* Action button */}
-                    <div className="flex-shrink-0">
-                      {tour.status === 'on-sale' ? (
-                        <button className="flex items-center gap-2 px-4 py-2 bg-[#1F1F1F] text-white rounded-full text-sm font-medium hover:bg-[#1F1F1F]/80 transition-colors">
-                          <Ticket className="w-4 h-4" />
-                          <span>{tourScheduleConfig.buyButtonText}</span>
-                        </button>
-                      ) : (
-                        <button className="flex items-center gap-2 px-4 py-2 border border-[#1F1F1F]/20 text-[#1F1F1F]/60 rounded-full text-sm hover:border-[#1F1F1F]/40 transition-colors">
-                          <ExternalLink className="w-4 h-4" />
-                          <span>{tourScheduleConfig.detailsButtonText}</span>
-                        </button>
-                      )}
+                      {/* Action button */}
+                      <div className="flex-shrink-0">
+                        {tour.status === 'on-sale' ? (
+                          <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-[#1F1F1F] text-white rounded-full text-xs md:text-sm font-medium hover:bg-[#1F1F1F]/80 transition-colors">
+                            <Ticket className="w-4 h-4" />
+                            <span>{tourScheduleConfig.buyButtonText}</span>
+                          </button>
+                        ) : (
+                          <button className="flex items-center gap-2 px-3 md:px-4 py-2 border border-[#1F1F1F]/20 text-[#1F1F1F]/60 rounded-full text-xs md:text-sm hover:border-[#1F1F1F]/40 transition-colors">
+                            <ExternalLink className="w-4 h-4" />
+                            <span>{tourScheduleConfig.detailsButtonText}</span>
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -197,11 +203,11 @@ const TourSchedule = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 text-center">
+        <div className="mt-12 md:mt-20 text-center">
           <p className="font-mono-custom text-sm text-[#1F1F1F]/60 mb-4">
             {tourScheduleConfig.bottomNote}
           </p>
-          <button className="px-8 py-4 bg-[#1F1F1F] text-white font-display text-sm uppercase tracking-wider rounded-full hover:bg-[#1F1F1F]/80 transition-colors">
+          <button className="px-6 md:px-8 py-3 md:py-4 bg-[#1F1F1F] text-white font-display text-xs md:text-sm uppercase tracking-wider rounded-full hover:bg-[#1F1F1F]/80 transition-colors w-full sm:w-auto">
             {tourScheduleConfig.bottomCtaText}
           </button>
         </div>
