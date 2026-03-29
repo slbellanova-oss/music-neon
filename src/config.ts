@@ -187,7 +187,7 @@ export interface TourScheduleConfig {
 }
 
 export const tourScheduleConfig: TourScheduleConfig = {
-  sectionLabel: "МИРОВОЙ ТУР 2025",
+  sectionLabel: "МИРОВОЙ ТУР 2026",
   sectionTitle: "Расписание концертов",
   vinylImage: "/vinyl.png",
   buyButtonText: "Купить билет",
@@ -201,10 +201,10 @@ export const tourScheduleConfig: TourScheduleConfig = {
     default: "Уточняется",
   },
   tourDates: [
-    { id: 1, date: "2025.03.15", time: "20:00", city: "Москва", venue: "Stadium Live", status: "on-sale", image: "/venue-1.jpg" },
-    { id: 2, date: "2025.03.22", time: "19:30", city: "Санкт-Петербург", venue: "A2 Green Concert", status: "on-sale", image: "/venue-2.jpg" },
-    { id: 3, date: "2025.04.05", time: "21:00", city: "Казань", venue: "TatNeft Arena", status: "sold-out", image: "/venue-3.jpg" },
-    { id: 4, date: "2025.04.12", time: "20:00", city: "Екатеринбург", venue: "Tele-Club", status: "coming-soon", image: "/venue-4.jpg" },
+    { id: 1, date: "2026.03.15", time: "20:00", city: "Москва", venue: "Stadium Live", status: "on-sale", image: "/venue-1.jpg" },
+    { id: 2, date: "2026.03.22", time: "19:30", city: "Санкт-Петербург", venue: "A2 Green Concert", status: "on-sale", image: "/venue-2.jpg" },
+    { id: 3, date: "2026.04.05", time: "21:00", city: "Казань", venue: "TatNeft Arena", status: "sold-out", image: "/venue-3.jpg" },
+    { id: 4, date: "2026.04.12", time: "20:00", city: "Екатеринбург", venue: "Tele-Club", status: "coming-soon", image: "/venue-4.jpg" },
   ],
 };
 
@@ -277,7 +277,7 @@ export const footerConfig: FooterConfig = {
   newsletterDescription: "Получай первым информацию о новых релизах и концертах",
   newsletterButtonText: "Подписаться",
   subscribeAlertMessage: "Спасибо за подписку! Теперь ты будешь в курсе всех новостей NEON PULSE.",
-  copyrightText: "© 2025 NEON PULSE. Все права защищены.",
+  copyrightText: "© 2026 NEON PULSE. Все права защищены.",
   bottomLinks: [
     { label: "Политика конфиденциальности" },
     { label: "Условия использования" },

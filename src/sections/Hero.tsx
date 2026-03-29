@@ -102,7 +102,7 @@ const Hero = () => {
       {/* Navigation pill */}
       <nav
         ref={navRef}
-        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-2 py-2 max-w-[95vw]"
+        className="fixed top-20 md:top-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-2 py-2 max-w-[95vw]"
       >
         <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide">
           {heroConfig.navItems.map((item) => {
